@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- My CSS -->
+  <link rel="stylesheet" href="static/assets/css/style.css">
+  <title>AI For Heart</title>
+</head>
+
+{% if result %}
+  <script>
+    console.log('{{ result["scroller"] }}')
+    document.location.hash = '#' + '{{ result["scroller"] }}';
+  </script>
+{% endif %}
+
+<body>
+  <header>
+    <!-- Navbar -->
+    <nav>
+      <div class="container">
+        <!-- Logo -->
+        <label>
+          <img src="static/assets/img/1.png" alt="AI For Health">
+        </label>
+        <!-- End Logo -->
+        <div class="navbar">
+          <a href="#">Home</a>
+          <a href="#one">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="menu-toggle">
+          <input type="checkbox">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    <!-- Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url(static/assets/img/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner@2x.png);">
+          <!-- <img src="assets/img/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner@2x.png" class="d-block w-100" alt="..."> -->
+          <div class="container">
+            <img class="heart-carousel" src="static/assets/img/Asset 2@2x.png" alt="heart">
+            <h1>SISTEM PAKAR</h1>
+            <h1>JANTUNG KORONER</h1>
+            <p>Ketahui risiko jantungmu dan</p>
+            <p>dapatkan rekomendasi tindakan</p>
+            <div >
+              <a href="#deteksi" class="btn-mulai">MULAI</a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url(static/assets/img/Rectangle\ 25@2x.png);">
+          <!-- <img src="assets/img/Rectangle 25@2x.png" class="d-block w-100" alt="..."> -->
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </header>
+  <!-- End Header -->
+  <!-- Main Content -->
+  <main>
+    <h4 class="death">Jantung koroner adalah penyebab kematian #1 di dunia</h4>
+    <section id="one">
+      <div class="container-flex">
+        <div class="box1">
+          <img src="static/assets/img/Picture5@2x.png" alt="world">
+          <p>Tingkat kematian sebesar 122 
+            orang per 100 ribu populasi pada 2016</p>
+        </div>
+        <div class="box2">
+          <img src="static/assets/img/Picture6@2x.png" alt="world">
+          <p>17 juta orang meninggal
+            akibat penyakit jantung pada 2019</p>
+        </div>
+        <div class="box3">
+          <img src="static/assets/img/Picture4@2x.png" alt="world">
+          <p>Angka kematian diperkirakan 
+            meningkat hingga 23,3 juta pada tahun 2030 </p>
+        </div>
+      </div>
+    </section>
+    <section id="two">
+      <div class="container">
+        <h1>JANTUNG KORONER</h1>
+        <p>Penyakit jantung koroner (PJK) adalah kondisi ketika pembuluh darah jantung (arteri koroner) tersumbat oleh
+          timbunan lemak. Bila lemak makin menumpuk, maka arteri akan makin menyempit, dan membuat aliran darah ke
+          jantung berkurang.</p>
+        <p>Berkurangnya aliran darah ke jantung akan memicu gejala PJK, seperti angina dan sesak napas. Bila kondisi
+          tersebut tidak segera ditangani, arteri akan tersumbat sepenuhnya, dan memicu serangan jantung.</p>
+      </div>
+      <img src="static/assets/img/Picture7@2x.png" alt="img-doctor" class="img-doctor">
+    </section>
+    <section id="three" style="background-image: url(static/assets/img/Group\ 4@2x.png);">
+      <h3>Keunggulan AI For Health sebagai DSS untuk deteksi dini jantung koroner </h3>
+      <div class="container-flex">
+        <div class="DSS">
+          <img src="static/assets/img/Face Detection@2x.png" alt="world">
+          <p>Menggunakan Foto Wajah</p>
+        </div>
+        <div class="DSS">
+          <img src="static/assets/img/Stetoskop@2x.png" alt="world">
+          <p>Tidak Menimbulkan
+            Efek Samping</p>
+        </div>
+        <div class="DSS">
+          <img src="static/assets/img/Efisien@2x.png" alt="world">
+          <p>Tidak Membutuhkan Biaya</p>
+          <p>dan Menyita Waktu serta Tenaga</p>
+        </div>
+      </div>
+    </section>
+    <section id="four">
+      <h1 id="deteksi">DETEKSI JANTUNG KORONER</h1>
+      <!-- Form Input Deteksi -->
+      <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="file-upload"id="result">
+          <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Pilih
+            Gambar</button>
+          <div class="image-upload-wrap" >
+            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="images"/>
+            <div class="drag-text">
+              <h3>Drag and drop a file or select add Image</h3>
+            </div>
+          </div>
+          <div class="file-upload-content">
+            <img class="file-upload-image" src="#" alt="your image" />
+            <div class="image-title-wrap">
+              <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
+                  class="image-title">Uploaded Image</span></button>
+            </div>
+          </div>
+          <div style="text-align: left;">
+            <br>
+            <p class="my-0">Spesifikasi gambar :</p>
+            <ul>
+              <li>
+                foto <i>full face</i> deenga resolusi width 2000 piksel
+              </li>
+              <li>
+                Tanpa filter
+              </li>
+              <li>
+                Jernih dan tidak blur
+              </li>
+              <li>
+                Berorientasi <i>portrait</i>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End Form Input Deteksi -->
+        <!-- Submit Button -->
+        <br>
+        <input type="submit" name="" value="Submit" class="btn-submit">
+      </form>
+      
+      <br>
+      <!-- End Submit Button -->
+      <!-- Form Hasil Deteksi -->
+      <div id="hasil-deteksi">
+        <h2>Hasil Deteksi</h2>
+        <table>
+          <tr>
+            <th>Status Risiko</th>
+            {% if result %}
+              <td>: {{ result["risk"] }}</td>
+            {% endif %}
+          </tr>
+          <tr>
+            <th>Rekomendasi Tindakan</th>
+            {% if result %}
+              <td>: {{ result["status"] }}</td>
+            {% endif %}
+          </tr>
+        </table>
+      </div>
+      <div>
+        
+      </div>
+      <!-- Rekomendasi Tindakan -->
+      <!-- Risiko Rendah -->
+      <div class="container risk-rendah" id="risk-rendah">
+        <h2 class="fw-bold text-success">7 Cara Menjaga Kesehatan Jantung</h2>
+        <div style="text-align: left;">
+          <h3 class="fw-bold">1. Rutin Berolahraga</h3>
+          <p>Olah raga atau setidaknya melakukan aktivitas fisik ringan secara rutin dapat menolong jantung kita untuk tetap sehat. Saat kita berolah raga (yang dimulai dengan pemanasan yang tepat, tentunya) jantung akan memompa darah lebih deras sehingga pembuluh-pembuluh darah kita menjadi lebih lentur. Selain itu, oksigen akan terdistribusi ke seluruh bagian tubuh kita sehingga membuat kita menjadi lebih bugar. </p>
+
+          <h3 class="fw-bold">2. Menjaga Pola Makan Sehat</h3>
+          <p>Perhatikan pola makan Anda. Apa saja yang Anda konsumsi setiap hari? Apakah makanan yang sehat, ataukah makanan-makanan yang mengandung banyak lemak, garam, dan gula? Salah satu penyebab penyakit jantung adalah makanan-makanan dengan tingkat lemak dan garam yang tinggi seperti <i>fast food</i>, daging asap, sosis, dan kebanyakan makanan yang diolah dengan teknik deep fry. Jika ingin jantung Anda sehat, mulailah mengonsumsi makanan-makanan segar seperti sayur-sayuran, kacang-kacangan, dan ikan salmon.</p>
+
+          <h3 class="fw-bold">3. Menjaga Berat Badan Ideal</h3>
+          <p>Menjaga berat badan yang ideal tidak hanya akan membuat Anda sehat, tetapi juga akan memudahkan Anda untuk bergerak dan tampak lebih menarik. Batasi makan atau minum yang mengandung banyak gula dan garam. Selalu kontrol berat badan Anda dengan merencanakan menu mingguan yang sehat. Ada cara sederhana untuk memperkirakan berat badan yang ideal bagi Anda, yaitu dengan menggunakan Rumus Broca. Karena pria dan wanita memiliki massa otot yang berbeda, rumus yang dibuat oleh Pierre Paul Broca ini pun berbeda bagi pria dan wanita:
+          </p>
+          <h4 class="fw-bold">Mengukur berat badan ideal pria:</h4>
+          <p>(Tinggi Badan – 100) – (Tinggi Badan – 100) x 10 %) = Berat Badan Ideal Pria</p>
+          <h4>Contoh Mengukur berat badan ideal seorang pria dengan tinggi badan 180 cm.</h4>
+          <p>(180 – 100) – (180 – 100) x 10%) = 72 kg.</p>
+          <h4 class="fw-bold">Mengukur berat badan ideal wanita:</h4>
+          <p>(Tinggi Badan – 100) – (Tinggi Badan – 100) x 15 %) = Berat Badan Ideal Wanita</p>
+          <h4>Contoh Mengukur berat badan seorang wanita dengan tinggi badan 155 cm.</h4>
+          <p>(155-100) – (155-100) x 15%) = 40 kg</p>
+          <p>Perlu diingat bahwa rumus ini tidak selalu tepat karena ada banyak faktor seperti usia dan proporsi tubuh yang turut memengaruhi berat badan ideal seseorang, tetapi rumus ini dapat menjadi perkiraan berat badan ideal Anda.</p>
+
+          <h3 class="fw-bold">4. Mengontrol Kadar Kolesterol dalam Darah</h3>
+          <p>Hal yang juga perlu diperhatikan untuk menjaga kesehatan jantung adalah dengan mengontrol kadar kolesterol dalam darah. Anda dapat melakukan hal ini dengan melakukan cek darah secara rutin di rumah sakit maupun secara mandiri di rumah dengan berbagai <i>kit</i> yang kini banyak dijual di pasaran.</p>
+
+          <h3 class="fw-bold">5. Rajin Minum Air Putih</h3>
+          <p>Tahukah Anda bahwa rajin meminum air putih dapat menurunkan risiko terkena penyakit jantung sebesar 54 % pada pria dan 41 % pada wanita. Hal ini dikarenakan air dapat melarutkan kandungan garam dalam darah sehingga meringankan kerja jantung dalam memompa darah segar ke seluruh tubuh. Secara umum, kebutuhan air tubuh kita dapat dicek dengan memperhatikan urin kita, jika berwarna pekat itu berarti tubuh kita memerlukan lebih banyak air. Minum 8 gelas air per hari adalah sebuah kebiasaan sepele, tetapi memberi manfaat yang besar bagi jantung dan tubuh kita.</p>
+
+          <h3 class="fw-bold">6. Berhenti Merokok</h3>
+          <p>Peringatan yang terdapat pada bungkus rokok tidak dibuat tanpa alasan. Menurut WHO setiap tahun ada 1,9 juta orang yang meninggal akibat penyakit jantung yang terkait dengan penggunaan tembakau. Nikotin dan karbon monoksida yang ada pada rokok tidak hanya merusak paru-paru, tetapi juga sangat berbahaya bagi jantung manusia. Jika Anda ingin jantung Anda sehat, berhentilah merokok sekarang juga.</p>
+
+          <h3 class="fw-bold">7. Istirahat yang Cukup</h3>
+          <p>Jantung kita tidak hanya bekerja lebih keras saat kita kekurangan asupan gizi dan air, tetapi juga sangat dipengaruhi oleh tingkat stres dan tekanan darah. Saat Anda memaksa tubuh Anda sampai ke luar batasnya, ada banyak bagian dalam tubuh Anda yang akan terganggu, terutama jantung. Istirahat yang cukup akan memastikan bahwa metabolisme Anda berjalan optimal, stres Anda lebih terkelola, dan tekanan darah yang normal. </p>
+        </div>
+        <br>
+      </div>
+              
+      <!-- Risiko Tinggi -->
+      <div class="container risk-tinggi" id="risk-tinggi">
+        <h2 class="fw-bold text-danger">Beberapa Rumah Sakit untuk Konsultasi Pemeriksaan Jantung di Indonesia</h2>
+        <div style="text-align: left;">
+
+          <h3 class="fw-bold">1. Rumah Sakit Dr. Kariadi Semarang</h3>
+          <p>Rumah Sakit Kariadi Semarang menjadi satuan kerja atau unit pelaksana teknis yang berada di bawah Direktur Jenderal Pelayanan Kesehatan Kementerian Kesehatan Republik Indonesia sesuai Surat Keputusan Menkes No. 1243/Menkes/SK/VIII/2005.</p>
+            <p>
+              Memiliki tugas utama sebagai instansi penyelenggara untuk melakukan upaya penyembuhan dan pemulihan yang dilaksanakan secara serasi, terpadu, dan berkesinambungan untuk meningkatkan kesehatan dan mencegah serta upaya rujukan dan lainnya yang dibutuhkan di bidang kesehatan.
+            </p>
+            <p>
+            Oleh karena itu, Rumah Sakit Kariadi menjadi rumah sakit kelas A pendidikan dengan beragam pelayanan medis unggulan seperti bedah minimal invasif, jantung terpadu, onkologi terpadu, dan transplantasi.</p>
+          <h3 class="fw-bold">Kontak Rumah Sakit Dr. Kariadi Semarang</h3>
+          <p>Kamu yang ingin melakukan pengobatan dan perawatan di Rumah Sakit Kariadi Semarang bisa langsung datang ke alamat di bawah ini atau menghubungi kontak di bawah ini.</p>
+          <ul>
+            <li>Alamat : Jalan Dr. Sutomo No. 16, Semarang, Jawa Tengah.</li>
+            <li>Telepon : (0224) 8413476.</li>
+            <li>Email :<a href="mailto:info@rskariadi.co.id"> info@rskariadi.co.id </a></li>
+            <li>Situs resmi : <a href="https://rskariadi.co.id/layanan/14/Jantung"> www.rskariadi.co.id </a></li>
+          </ul>
+
+          <h3 class="fw-bold">2. RS Jantung dan Pembuluh Darah Harapan Kita</h3>
+          <p>Rumah Sakit Jantung dan Pembuluh Darah Harapan Kita (RSJPDHK) adalah rumah sakit khusus di Jakarta Barat yang menjadi Pusat Rujukan Nasional untuk menangani penyakit jantung dan pembuluh darah (kardiovaskular). </p>
+          <p>Rumah sakit yang didirikan oleh Yayasan Harapan Kita ini sudah diresmikan sejak 9 November 1985 dan berlokasi di Jl. S. Parman kavling 87 Slipi, Jakarta Barat dan diresmikan pada tanggal 9 November 1985.</p>
+          <p>Selain menyediakan pelayanan kesehatan jantung, RSJPDHK sebagai Pusat Jantung Nasional juga dikembangkan sebagai tempat pendidikan, pelatihan, dan penelitian kesehatan kardiovaskular. </p>
+          <h3 class="fw-bold">Kontak RS Jantung dan Pembuluh Darah Harapan Kita</h3>
+          <ul>
+            <li>Alamat : Jl. S. Parman kavling 87 Slipi, Jakarta Barat</li>
+            <li>Telepon : 021-5684086</li>
+            <li>Email :<a href="mailto:info@pjnhk.go.id"> info@pjnhk.go.id</a></li>
+            <li>Situs resmi : <a href="https://pjnhk.go.id/pelayanan/medical-check-up-kardiovaskular-mcu"> www.pjnhk.go.id</a></li>
+          </ul>
+
+          <h3 class="fw-bold">3. RSUD Dr. Soetomo</h3>
+          <p>RSUD Dr. Soetomo Surabaya sejak dibangun pada 29 
+            Oktober tahun 1938 sebagai New Centrale Burgerlijke 
+            Ziekeninrichting (New C.B.Z) untuk membantu CBZ 
+            simpang oleh pemerintah Hindia Belanda sejak itu 
+            menjadi RS Pendidikan untuk mahasiswa kedokteran 
+            NIAS (Nederlandsch Indische Arstsen School). Selain itu 
+            berfungsi sebagai pelayanan kesehatan masyarakat 
+            Surabaya dan sekitarnya. Sekarang dengan sendirinya 
+            berlanjut sebagai RS Pendidikan Fakultas Kedokteran 
+            Universitas Airlangga selain untuk pelayanan kesehatan 
+            masyarakat Surabaya dan Jawa Timur bahkan pusat 
+            rujukan Indonesia Timur.</p>
+          <p>Sebagai Rumah Sakit Umum Daerah yang menjadi pusat pendidikan dan 
+            rujukan terbesar di wilayah Indonesia bagian Timur, RSUD Dr. Soetomo telah menyediakan fasilitas terlengkap untuk pasien bayi sampai dengan para lansia dengan berbagai masalah kesehatan, ditunjang dengan fasilitas canggih dan modern. </p>
+          <h3 class="fw-bold">Kontak RSUD Dr. Soetomo</h3>
+          <ul>
+            <li>Alamat : Jl. Dharmawangsa No.24, Airlangga, Kec. Gubeng, Kota SBY, Jawa Timur</li>
+            <li>Telepon : +62 31 5501078</li>
+            <li>Email :<a href="kontak@rsudrsoetomo.jatimprov.go.id"> kontak@rsudrsoetomo.jatimprov.go.id</a></li>
+            <li>Situs resmi : <a href="https://rsudrsoetomo.jatimprov.go.id/rn-pusat-pelayanan-jantung-terpadu/#1613375468125-94ae1fd9-b23c"> www.rsudrsoetomo.jatimpov.go.id</a></li>
+          </ul>
+        </div>
+        <br>
+      </div>
+
+      <div>
+        <br>
+        <br>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div id="contact">
+      <div class="container">
+        <div>
+          <h2>Hubungi Kami :</h2>
+          <p class="fw-bold m-0">082133357770</p>
+          <a href="mailto:aiforheart.official@gmail.com">aiforheart.official@gmail.com</a>
+        </div>
+        <div>
+          <h2>Sosial Media :</h2>
+          <span><a href="#"><img src="static/assets/img/email@2x.png" alt=""></a></span>
+          <span><a href="#"><img src="static/assets/img/wa@2x.png" alt=""></a></span>
+          <span><a href="#"><img src="static/assets/img/ig@2x.png" alt=""></a></span>
+          <span><a href="#"><img src="static/assets/img/fb@2x.png" alt=""></a></span>
+          <span><a href="#"><img src="static/assets/img/yt@2x.png" alt=""></a></span>
+        </div>
+        <img id="logo-footer" src="static/assets/img/2.png" alt="Logo">
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright &copy;AIforHeart 2021 </p>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+<script src="static/assets/js/script.js"></script>
+
+
+</html>
