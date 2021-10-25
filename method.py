@@ -29,6 +29,12 @@ def convertToRGB(image):
 
 
 def methode(location=''):
+    # Import Library Haar Cascade
+    haar_cascade_face = cv2.CascadeClassifier(
+        'haarcascades/haarcascade_frontalface_alt2.xml')
+    eyes_cascade = cv2.CascadeClassifier(
+        'haarcascades/haarcascade_eye_tree_eyeglasses.xml')
+    
     # Import image
     img = cv2.imread(location)
     # Resize image for standard image
@@ -38,75 +44,108 @@ def methode(location=''):
     dsize = (basewidth, hsize)
     img = cv2.resize(img, dsize)
 
-    # Save resized image
-    cv2.imwrite('Resize Image/result1.jpg', img)
+#     # Save resized image
+#     cv2.imwrite('Resize Image/result1.jpg', img)
 
-    # Loading the image to be tested
-    test_image = cv2.imread('Resize Image/result1.jpg')
+#     # Loading the image to be tested
+#     test_image = cv2.imread('Resize Image/result1.jpg')
 
     # Converting to grayscale as opencv expects detector takes in input gray scale images
-    test_image_gray = cv2.cvtColor(test_image, cv2.COLOR_BGR2GRAY)
-
-    # Import Library Haar Cascade
-    haar_cascade_face = cv2.CascadeClassifier(
-        'haarcascades/haarcascade_frontalface_alt2.xml')
-    eyes_cascade = cv2.CascadeClassifier(
-        'haarcascades/haarcascade_eye_tree_eyeglasses.xml')
+    gray_picture = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)#make picture gray
+    faces = face_cascade.detectMultiScale(gray_picture, 1.1, 5)
 
     # Face Detect
-    faces_rects = haar_cascade_face.detectMultiScale(
-        test_image_gray, scaleFactor=1.1, minNeighbors=2)
-    eyes_rects = eyes_cascade.detectMultiScale(
-        test_image, scaleFactor=1.1, minNeighbors=3)
+#     faces_rects = haar_cascade_face.detectMultiScale(
+#         test_image_gray, scaleFactor=1.1, minNeighbors=2)
+#     eyes_rects = eyes_cascade.detectMultiScale(
+#         test_image, scaleFactor=1.1, minNeighbors=3)
 
-    # Let us print the no. of faces found
-    print('Faces found: ', len(faces_rects))
-    print('Eyes found: ', len(eyes_rects))
-    # print('Eyes found: ', len(eyes_rects_1))
+#     # Let us print the no. of faces found
+#     print('Faces found: ', len(faces_rects))
+#     print('Eyes found: ', len(eyes_rects))
+#     # print('Eyes found: ', len(eyes_rects_1))
 
     # Coding coordinate face detector
-    for (x, y, w, h) in faces_rects:
-        cv2.rectangle(test_image, (x, y), (x+w, y+h),
-                      (255, 0, 0), 0)  # tebal garis 0,1,2,3 dst
-        print("here1")
-        for (x, y, w, h) in faces_rects:
-            # tebal garis 0,1,2,3 dst
-            test_image, (x, y), (x+w, y+h), (255, 0, 0), 0
-
-            # Save image face
-            roi_gray = test_image_gray[y:y+h, x:x+w]
-            roi_color = test_image[y:y+h, x:x+w]
-            print("here2a")
+    for (x,y,w,h) in faces:
+        cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+        gray_face = gray_picture[y:y+h, x:x+w] # cut the gray face frame out
+        face = img[y:y+h, x:x+w] # cut the face frame out
+        
+        eyes = eye_cascade.detectMultiScale(gray_face, 1.25, 5, 5)
+        height = np.size(face, 0) # get face frame height
+        for (x2, y2, w2, h2) in eyes:
+            if y+h > height/2: # pass if the eye is at the bottom
+                pass
+            cv2.rectangle(face,(x2,y2),(x2+w2,y2+h2),(0,0,255),10)
+            
             face_file_name = "Result by File/face.jpg"
-            plt.imsave(face_file_name, convertToRGB(roi_color))
-            print("here2b")
-            eyes = eyes_cascade.detectMultiScale(roi_gray)
-            for (x2, y2, w2, h2) in eyes:
-                # Comment this line if no need draw rectangle
-                cv2.rectangle(roi_color, (x2, y2),
-                              (x2+w2, y2+h2), (0, 255, 0), 0)
-                # Forehead
-                roi_color_forehead = test_image[y:y+400, x+500:x+900]
-                print(roi_color_forehead)
+            plt.imsave(face_file_name, convertToRGB(face))
+            
+            #Forehead
+            roi_color_forehead = None
+            roi_color_forehead = img[y:y+400, x+500:x+900]
 
-                # Left Crowsfeet
-                roi_color_left_crowsfeet = roi_color[y2 +
-                                                     50:y2+350, x2+250:x2+550]
+            #Left Crowsfeet
+            roi_color_left_crowsfeet = None
+            roi_color_left_crowsfeet = face[y2+50:y2+350, x2+250:x2+550]
 
-                # Left Canthus
-                roi_color_left_canthus = roi_color[y2+50:y2+350, x2-100:x2+200]
+            #Left Canthus
+            roi_color_left_canthus = None
+            roi_color_left_canthus = face[y2+50:y2+350, x2-100:x2+200]
 
-                # Bridge Nose
-                roi_color_bridge_Nose = roi_color[y2+50:y2+350, x2-300:x2]
-                print(roi_color_bridge_Nose)
+            #Bridge Nose
+            roi_color_bridge_Nose = None
+            roi_color_bridge_Nose = face[y2+50:y2+350, x2-300:x2]
 
-                # Right Canthus
-                roi_color_right_canthus = roi_color[y2 +
-                                                    50:y2+350, x2-500:x2-200]
+            #Right Canthus
+            roi_color_right_canthus = None
+            roi_color_right_canthus = face[y2+50:y2+350, x2-500:x2-200]
 
-                # Right Crowsfeet
-                roi_color_right_croswfeet = roi_color[y2 +
-                                                      50:y2+350, x2-850:x2-550]
+            #Right Crowsfeet
+            roi_color_right_croswfeet = None
+            roi_color_right_croswfeet = face[y2+50:y2+350, x2-850:x2-550]
+#     for (x, y, w, h) in faces_rects:
+#         cv2.rectangle(test_image, (x, y), (x+w, y+h),
+#                       (255, 0, 0), 0)  # tebal garis 0,1,2,3 dst
+#         print("here1")
+#         for (x, y, w, h) in faces_rects:
+#             # tebal garis 0,1,2,3 dst
+#             test_image, (x, y), (x+w, y+h), (255, 0, 0), 0
+
+#             # Save image face
+#             roi_gray = test_image_gray[y:y+h, x:x+w]
+#             roi_color = test_image[y:y+h, x:x+w]
+#             print("here2a")
+#             face_file_name = "Result by File/face.jpg"
+#             plt.imsave(face_file_name, convertToRGB(roi_color))
+#             print("here2b")
+#             eyes = eyes_cascade.detectMultiScale(roi_gray)
+#             for (x2, y2, w2, h2) in eyes:
+#                 # Comment this line if no need draw rectangle
+#                 cv2.rectangle(roi_color, (x2, y2),
+#                               (x2+w2, y2+h2), (0, 255, 0), 0)
+#                 # Forehead
+#                 roi_color_forehead = test_image[y:y+400, x+500:x+900]
+#                 print(roi_color_forehead)
+
+#                 # Left Crowsfeet
+#                 roi_color_left_crowsfeet = roi_color[y2 +
+#                                                      50:y2+350, x2+250:x2+550]
+
+#                 # Left Canthus
+#                 roi_color_left_canthus = roi_color[y2+50:y2+350, x2-100:x2+200]
+
+#                 # Bridge Nose
+#                 roi_color_bridge_Nose = roi_color[y2+50:y2+350, x2-300:x2]
+#                 print(roi_color_bridge_Nose)
+
+#                 # Right Canthus
+#                 roi_color_right_canthus = roi_color[y2 +
+#                                                     50:y2+350, x2-500:x2-200]
+
+#                 # Right Crowsfeet
+#                 roi_color_right_croswfeet = roi_color[y2 +
+#                                                       50:y2+350, x2-850:x2-550]
 
     # Save Result
     # Save result face
