@@ -71,15 +71,16 @@ def methode(location=''):
         gray_face = gray_picture[y:y+h, x:x+w] # cut the gray face frame out
         face = img[y:y+h, x:x+w] # cut the face frame out
         
+#         Save file face
+        face_file_name = "Result by File/face.jpg"
+        plt.imsave(face_file_name, convertToRGB(face))
+        
         eyes = eye_cascade.detectMultiScale(gray_face, 1.25, 5, 5)
         height = np.size(face, 0) # get face frame height
         for (x2, y2, w2, h2) in eyes:
             if y+h > height/2: # pass if the eye is at the bottom
                 pass
             cv2.rectangle(face,(x2,y2),(x2+w2,y2+h2),(0,0,255),10)
-            
-            face_file_name = "Result by File/face.jpg"
-            plt.imsave(face_file_name, convertToRGB(face))
             
             #Forehead
             roi_color_forehead = None
